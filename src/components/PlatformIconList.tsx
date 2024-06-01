@@ -14,7 +14,7 @@ import { Platform } from "../hooks/useGames";
 import { IconType } from "react-icons";
 
 interface Props {
-  platforms: Platform[];
+  platforms: Platform[] | null;
 }
 
 function PlatformIconList({ platforms }: Props) {
@@ -29,6 +29,7 @@ function PlatformIconList({ platforms }: Props) {
     web: BsGlobe,
     android: FaAndroid,
   };
+  if (!platforms) return null;
   return (
     <HStack marginY={"10px"}>
       {platforms.map((platform) => (
